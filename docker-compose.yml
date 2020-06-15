@@ -1,5 +1,6 @@
 # Docker-compose file alows us to run the docker image easily from  our project location
-# It allows us to manage the different services that makeup our project EX: one service might be the python and other might be the database
+# It allows us to manage the different services that makeup our project 
+# EX: one service might be the python and other might be the database
 version: "3"
 
 services: 
