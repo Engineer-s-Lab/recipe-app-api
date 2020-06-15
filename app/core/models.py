@@ -1,15 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser,BaseUserManager,PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+
 
 class UserManager(BaseUserManager):
 
-    def create_user(self,email,password=None, **extra_fields):
+    def create_user(self, email, password=None, **extra_fields):
         # Creates and saves a new user
         if not email:
             raise ValueError('User must have email address')
-        user = self.model(email = self.normalize_email(email), **extra_fields)
+        user=self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
-        user.save(using=self._db) # using = self._db is used to work with any database that the project uses.. Basically its a good practice
+        user.save(using=self._db)  # using = self._db is used to work with any database that the project uses.. Basically its a good practice
 
         return user
 
